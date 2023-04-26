@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)file:///C:/Users/0220482223046/Downloads/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Avaliação 1</title>
+</head>
+<body>
+    
+
+
+
+
+
+    <header>
+        Itens e Valores
+    </header>
+    <section class = "calc">
+        <img src="https://assets-blog.pagseguro.uol.com.br/wp-content/2022/05/real-digital.jpg"> <br>
+    <container class = "calc2">
+        <input class = "valor" type="number" placeholder="Informe um valor" min="0" id="valor">
+        <input class = "valor" type="button" value="Adicionar" onclick="adicionar2()" id="btnAdicionar">
+        <input class = "valor" type="button" value="Limpar" onclick="limpar()" id="botnLimpar">
+
+        <input type="number" placeholder="Informe o desconto" min="0" id="desc">
+        <input type="button" value="Calcular desconto (%)" onclick="desconto()" id="desconto">
+
+
+        </container>
+
+        <ul id="listaItem"></ul>
+        <p id="sub"></p>
+
+        <p id="total"></p>
+        <div class = "creditos">
+        <p>Programação de Scripts</p>
+        <p>David Danilo da Silva de Godoy</p>
+        <p>Ryan Fernandes da Silva</p>
+        </div>
+
+    </section>
+
+    <script>
+         document.getElementById('botnLimpar').onclick = function (){
+    valores = [];
+    desconto = 0;
+    subtotal = 0;
+    document.getElementById('desc').value = '';
+    document.getElementById('listaItem').innerHTML = '';
+    document.getElementById('sub').innerHTML='';
+    document.getElementById('total').innerHTML='';
+
+
+    }
+        function adicionaritem(lista,item)
+            {
+                if(item != ''){
+
+            var tnumber = document.getElementById('valor')
+            var tsub = document.getElementById('sub')
+            var n = Number(valor.value)
+
+            soma = soma + n
+
+            tsub.innerHTML = `Subtotal: ${soma}`
+                    lista.push(item);
+                }
+                else {
+                    alert('digite um item valido');
+                }
+            }
+            listaCompras = [];
+
+  
+         window.onload = function(){
+                document.getElementById('btnAdicionar').onclick = function(){
+                    let lista;
+                    var item = document.getElementById('valor').value;
+                    adicionaritem(listaCompras,item);
+
+
+                    document.getElementById('valor').value = '';
+                  
+                  let auxHtml = '';
+                  
+                    for(let i = 0; i < listaCompras.length; i++){
+                     auxHtml += '<li>' + listaCompras[i] + '</li>';
+                    }
+                    document.getElementById('listaItem').innerHTML = auxHtml;  
+                  }
+
+
+
+        }
+           
+
+
+
+
+        var soma = 0;      
+
+        function desconto(){
+            var tdesc = document.getElementById('desc')
+            var ndesc = Number(desc.value)
+            var ttotal = document.getElementById('total')
+            
+            ndesc = ndesc / 100
+
+            var aux = soma * ndesc
+
+            var result = soma - aux
+
+            ttotal.innerHTML = `Total: ${result}`
+
+        }
+
+        
+        
+     
+        
+
+    </script>
+
+
+</body></html>
